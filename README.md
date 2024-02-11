@@ -1,7 +1,7 @@
 
 
 # mlllb
-My life-long learning book
+My life-long learning journey
 
 This is from https://www.mkdocs.org/
 
