@@ -1,0 +1,6 @@
+site_name: My Life-Long Learning Book
+nav:
+  - Home: index.md
+  - About: about.md
+theme:
+  name: terminal
