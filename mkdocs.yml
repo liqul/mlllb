@@ -2,5 +2,9 @@ site_name: My Life-Long Learning Journey
 nav:
   - Home: index.md
   - About: about.md
+  - Programming Concurrency with Asyncio:
+    - Chapter 1: programming_concurrency_with_asyncio/chapter1.md
 theme:
   name: terminal
+plugins:
+    - mermaid2
