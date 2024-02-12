@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.5.3, mkdocs-terminal-4.4.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Chapter 1 - My Life-Long Learning Journey</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">My Life-Long Learning Journey</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../.." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../../about/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">About</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                    
+                    
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../about/">About</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item--active terminal-mkdocs-side-nav-section-no-index">Programming Concurrency with Asyncio</span>
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        <span class="
+
+    terminal-mkdocs-side-nav-item--active">Chapter 1</span>
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#getting-to-know-asyncio">Getting to know asyncio</a></li>
+        <li><a href="#io-boundcpu-bound">I/O-bound和CPU-bound</a></li><li><a href="#processthread">进程（process）和线程（thread）</a></li><li><a href="#concurrencyparallelismmultitasking">Concurrency、Parallelism和Multitasking</a></li><li><a href="#threadcoroutinecontext-switching">线程（thread）和协程（coroutine）的Context Switching</a></li><li><a href="#global-interpreter-lockgil">关于global interpreter lock（GIL）</a></li><li><a href="#socket">Socket</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+<section id="mkdocs-terminal-content">
+    <h1 id="getting-to-know-asyncio">Getting to know asyncio</h1>
+<h2 id="io-boundcpu-bound">I/O-bound和CPU-bound</h2>
+<p>主要看系统的bottleneck在哪里，在I/O就是I/O-bound，在CPU就是CPU-bound。</p>
+<h2 id="processthread">进程（process）和线程（thread）</h2>
+<p>进程是资源分配的最小单位，线程是CPU调度的最小单位。</p>
+<h2 id="concurrencyparallelismmultitasking">Concurrency、Parallelism和Multitasking</h2>
+<p>两个单词本身都有同时做多件事的语义，但Concurrency可以包括时分复用，而Parallelism是真正意义上的并行做多件事，所以估计这只是一种约定的叫法。</p>
+<p>除了这俩名字，还有一个叫multitasking的，是指一个系统能够同时做多件事。感觉这个概念是从操作系统的角度来描述的，即一个操作系统的单任务还是支持多任务。最最简单的操作系统可能只支持单任务，比如先进先出的简单任务调度策略。但现在的操作系统基本都是多任务系统，在单核的CPU上，只能通过时分复用来实现多任务，这就对应了Concurrency；而多核的CPU上，就可以通过真正的并行来支持多任务，这就对应了Parallelism。</p>
+<p>有两种multitasking的策略，即preemptive multitasking和cooperative multitasking。前者由操作系统主导，决定下一个要执行的任务及其时间；后者由程序员自己决定，即程序员自己决定下一个要执行的任务及其时间。由于操作系统是不感知程序的语义的，所以它的策略对程序来说是随机的，而程序员自己决定策略，就相当于程序员自己控制了程序的语义，所以程序员自己决定策略的程序，就叫做cooperative multitasking。</p>
+<p>现在一般把cooperative multitasking中调度的单位叫做coroutine。coroutine和process/thread都需要做context switching，但coroutine的context switching是程序员自己控制的，而process/thread的context switching是操作系统控制的，对应前面提到的cooperative multitasking和preemptive multitasking。</p>
+<h2 id="threadcoroutinecontext-switching">线程（thread）和协程（coroutine）的Context Switching</h2>
+<p>相比线程，协程的context switching更轻量级，这主要是由实现方式决定的。</p>
+<p>线程的context switching是操作系统控制的，由操作系统来保存和恢复线程的上下文，涉及操作系统kernel模式下的操作，涉及到的上下文则包括了程序运行时的各种状态，比如CPU寄存器、栈指针、堆栈、程序计数器（Program Counter有时也称为Instruction Pointer）等，所以context switching的开销很大。</p>
+<p>而协程的context switching是程序员自己控制的，由程序员自己来保存和恢复协程的上下文，完全在用户态下进行，所以context switching的开销很小。</p>
+<p>下面是ChatGPT给出的详细解释：</p>
+<blockquote>
+<h3 id="traditional-os-managed-context-switching-threadsprocesses">Traditional OS-Managed Context Switching (Threads/Processes):</h3>
+<p>In the context of threads or processes, when the OS performs a context switch:</p>
+<ul>
+<li><strong>All Registers are Saved/Restored:</strong> This includes the program counter (PC). The OS saves the current state of all CPU registers, including the PC, of the currently running thread/process into its context structure (like a Process Control Block for processes). Then, it restores the state of the CPU registers, including the PC, for the next thread/process to run. This switch changes which piece of code the CPU executes next.</li>
+</ul>
+<h3 id="coroutine-switching-in-user-space">Coroutine Switching in User Space:</h3>
+<p>When it comes to coroutines, particularly stackless coroutines managed within a user-level library (like Python's <code>asyncio</code>):</p>
+<ul>
+<li>
+<p><strong>"Program Counter" at User-Level:</strong> The concept of the "program counter" gets abstracted at the user level. Coroutines are functions with the ability to pause (yield) and resume. The point at which a coroutine yields (awaits) can be thought of as its "program counter" in a metaphorical sense because it marks the spot where execution will resume.</p>
+</li>
+<li>
+<p><strong>Not a CPU Register Operation:</strong> Unlike a thread or process switch, switching between coroutines does not involve saving and restoring the actual CPU program counter. Instead, it involves saving and restoring coroutine-specific data that allows the coroutine to resume where it left off. This includes the coroutine's local variables and its execution state (e.g., what it is waiting on).</p>
+</li>
+<li>
+<p><strong>Controlled by User-Level Code:</strong> The switching mechanism is orchestrated by the coroutine library/runtime, not the OS. For instance, when a coroutine yields control because it is waiting for I/O, the coroutine scheduler (part of the user-level library) saves its state and decides which coroutine to execute next. This switch is much more lightweight than an OS-level context switch because it doesn't involve kernel transitions or saving/restoring the entire CPU state.</p>
+</li>
+</ul>
+</blockquote>
+<p>我的感觉是，协程的实现一定程度上依赖了编程语言将函数（function）作为一等公民（first-class citizen）的能力，这样就能在用户态实现函数的调度。</p>
+<h2 id="global-interpreter-lockgil">关于global interpreter lock（GIL）</h2>
+<p>在CPython实现上，每一个Process都有一个GIL，GIL的本质是一种锁，防止多个线程同时修改object的reference count，因此GIL的存在限制了同一时间只能有一个线程在执行，即使运行在多核CPU上。</p>
+<p>但存在一种特殊的例外，就是I/O操作，因为I/O操作会导致GIL释放，也就是说在某个线程执行I/O操作时，GIL会释放，从而让其他线程执行。</p>
+<h2 id="socket">Socket</h2>
+<p>所有I/O操作都是通过Socket来实现的，比如读取文件，发送HTTP请求等。在操作系统层面，都有一种机制来实现异步I/O，比如Linux的epoll，Windows的IOCP。</p>
+<p>参考ChatGPT</p>
+<blockquote>
+<h3 id="how-epoll-works">How epoll Works:</h3>
+<p>Registration of File Descriptors: With epoll, you register file descriptors (like sockets) with the epoll instance.</p>
+<p>Monitoring for Events: The epoll instance monitors these file descriptors for specified events, such as data available for reading (EPOLLIN), the ability to write without blocking (EPOLLOUT), or an error condition (EPOLLERR).</p>
+<p>Wait for Events: The program can then wait for events to occur on any of the registered file descriptors. This is typically done using the epoll_wait system call, which allows the program to efficiently wait for multiple events simultaneously.</p>
+<p>Handling Events: When events occur on the registered file descriptors, the program can react accordingly, such as reading or writing data, accepting connections, or handling errors.</p>
+</blockquote>
+<p>借助这样的机制，Python就可以实现异步I/O了。</p>
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    
+    
+</body>
+
+</html>
