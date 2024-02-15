@@ -4,6 +4,12 @@ nav:
   - About: about.md
   - Programming Concurrency with Asyncio:
     - Chapter 1: programming_concurrency_with_asyncio/chapter1.md
+  - Unexpected Economics:
+    - Notes: unexpected_economics/notes.md
+  - 观点:
+    - 付鹏: 观点/付鹏.md
+  - 基础知识:
+    - 期货: 基础知识/期货.md
 theme:
   name: terminal
 plugins:
