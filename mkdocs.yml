@@ -10,6 +10,7 @@ nav:
     - 付鹏: 观点/付鹏.md
   - 基础知识:
     - 期货: 基础知识/期货.md
+    - 期权: 基础知识/期权.md
 theme:
   name: terminal
 plugins:
